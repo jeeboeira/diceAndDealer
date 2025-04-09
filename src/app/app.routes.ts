@@ -6,7 +6,7 @@ import { AuthGuard } from './guards/auth.guard';                             // 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'tabs/roll',
     pathMatch: 'full'                                                       // Redireciona para login se for o path raiz
   },
   {
@@ -15,7 +15,12 @@ export const routes: Routes = [
       import('./pages/login/login.page').then(m => m.LoginPage)             // Lazy-load da página de login
   },
   {
-        path: 'roll',
+    path: 'tabs',
+    loadComponent: () => 
+      import('./pages/tabs/tabs.page').then( m => m.TabsPage),
+    children: [
+      {
+        path: 'rolls',
         loadComponent: () =>
           import('./pages/roll/roll.page').then(m => m.RollPage),               // Página da rolagem de dados
         canActivate: [AuthGuard]                                                // Protege a rota com o AuthGuard
@@ -24,10 +29,6 @@ export const routes: Routes = [
         path: 'history',
         loadComponent: () =>
       import('./pages/history/history.page').then(m => m.HistoryPage)       // Página de histórico
-  },
-  {
-    path: 'tabs',
-    loadComponent: () => import('./pages/tabs/tabs.page').then( m => m.TabsPage)
       },
       {
         path: 'profile',
@@ -36,7 +37,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard]                                                // Protege a rota com o AuthGuard
       }
     ]
-}
+  }
 ];
 
 @NgModule({

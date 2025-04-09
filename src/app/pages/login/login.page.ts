@@ -32,7 +32,7 @@ export class LoginPage {
 
     if (success) {
       console.log('Marco 5 [LoginPage] Login OK, redirecionando...');
-      this.router.navigateByUrl('/roll');                              // Redireciona para a página inicial
+      this.router.navigateByUrl('/tabs/rolls');                              // Redireciona para a página inicial
     } else {
       const toast = await this.toastController.create({
         message: 'Email ou senha incorretos!',                               // Mensagem de erro

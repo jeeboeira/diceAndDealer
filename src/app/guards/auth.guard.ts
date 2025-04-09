@@ -25,6 +25,6 @@ export class AuthGuard implements CanActivate {
       return false;                                                 // Retorna falso para impedir o acesso à rota
     } 
     console.log(" Marco 7 [AuthGuard] Usuário autenticado, acesso liberado");
-    return true;                                                      // Nunca vai chegar aqui, mas é necessário para o tipo
+    return true;                                                      
   }
 }
