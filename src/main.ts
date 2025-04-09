@@ -7,6 +7,9 @@ import { importProvidersFrom } from '@angular/core';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideIonicAngular } from '@ionic/angular/standalone';
 import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
+import { addIcons } from 'ionicons';
+import { cubeOutline, timeOutline, personOutline } from 'ionicons/icons';
+
 
 
 bootstrapApplication(AppComponent, {
@@ -17,4 +20,9 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicStorageModule.forRoot()),
     DeviceMotion              // fornece o DeviceMotion para acessar os dados de movimento do dispositivo
   ]
+});
+addIcons({
+  'cube-outline': cubeOutline,
+  'time-outline': timeOutline,
+  'person-outline': personOutline
 });

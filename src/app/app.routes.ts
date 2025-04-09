@@ -6,7 +6,7 @@ import { AuthGuard } from './guards/auth.guard';                             // 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs/roll',
+    redirectTo: 'tabs/rolls',
     pathMatch: 'full'                                                       // Redireciona para login se for o path raiz
   },
   {
