@@ -27,12 +27,16 @@ export class AuthService {
         this._storage = await this.storage.create();                                           // Cria o armazenamento se não existir
     }
 
-    // Função de login: envia email e senha, armazena o token e redireciona
+    // Função de login: envia email e password, armazena o token e redireciona
     async login(email: string, password: string): Promise<boolean> {
+
+        console.log('[AuthService] Enviando login para:', this.api);
+        console.log('[AuthService] Dados:', { email, password });
+        
         try {
             const response: any = await firstValueFrom(this.http.post(`${this.api}/auth/login`, { 
                 email, 
-                password 
+                password
             }));                                                               // Faz a requisição de login
                 
             if (response.token) {                                              // Se o token for recebido

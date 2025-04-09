@@ -1,10 +1,50 @@
-<ion-header [translucent]="true">
+<ion-header translucent>
   <ion-toolbar>
     <ion-title>Rolagem de Dados</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2 *ngIf="rolledNumber">Você rolou: {{ rolledNumber }}</h2>
-  <p>Sacuda o celular para rolar um dado!</p>
+
+  <div class="dice-container">
+    <div class="dice" [class.rolling]="isRolling" [ngClass]="'show-' + rolledNumber">
+      <div class="face one">
+        <div class="pip center"></div>
+      </div>
+      <div class="face two">
+        <div class="pip top-right"></div>
+        <div class="pip bottom-left"></div>
+      </div>
+      <div class="face three">
+        <div class="pip top-left"></div>
+        <div class="pip center"></div>
+        <div class="pip bottom-right"></div>
+      </div>
+      <div class="face four">
+        <div class="pip top-left"></div>
+        <div class="pip top-right"></div>
+        <div class="pip bottom-left"></div>
+        <div class="pip bottom-right"></div>
+      </div>
+      <div class="face five">
+        <div class="pip top-left"></div>
+        <div class="pip top-right"></div>
+        <div class="pip center"></div>
+        <div class="pip bottom-left"></div>
+        <div class="pip bottom-right"></div>
+      </div>
+      <div class="face six">
+        <div class="pip top-left"></div>
+        <div class="pip center-left"></div>
+        <div class="pip bottom-left"></div>
+        <div class="pip top-right"></div>
+        <div class="pip center-right"></div>
+        <div class="pip bottom-right"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button">
+    <ion-button expand="block" (click)="rollDice()">Rolar Dado</ion-button>
+  </div>
 </ion-content>

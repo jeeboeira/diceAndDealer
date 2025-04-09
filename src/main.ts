@@ -6,13 +6,15 @@ import { routes } from './app/app.routes';
 import { importProvidersFrom } from '@angular/core';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideIonicAngular } from '@ionic/angular/standalone';
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
 
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideIonicAngular(),
-    provideHttpClient(),    // fornece o HttpClient para fazer requisições HTTP
-    provideRouter(routes),   // define as rotas
-    importProvidersFrom(IonicStorageModule.forRoot())
+    provideHttpClient(),      // fornece o HttpClient para fazer requisições HTTP
+    provideRouter(routes),    // define as rotas
+    importProvidersFrom(IonicStorageModule.forRoot()),
+    DeviceMotion              // fornece o DeviceMotion para acessar os dados de movimento do dispositivo
   ]
 });

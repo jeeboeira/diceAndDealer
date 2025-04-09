@@ -15,16 +15,28 @@ export const routes: Routes = [
       import('./pages/login/login.page').then(m => m.LoginPage)             // Lazy-load da página de login
   },
   {
-    path: 'roll',
-    loadComponent: () =>
-      import('./pages/roll/roll.page').then(m => m.RollPage),               // Página da rolagem de dados
-    canActivate: [AuthGuard]                                                // Protege a rota com o AuthGuard
+        path: 'roll',
+        loadComponent: () =>
+          import('./pages/roll/roll.page').then(m => m.RollPage),               // Página da rolagem de dados
+        canActivate: [AuthGuard]                                                // Protege a rota com o AuthGuard
+      },
+      {
+        path: 'history',
+        loadComponent: () =>
+      import('./pages/history/history.page').then(m => m.HistoryPage)       // Página de histórico
   },
   {
-    path: 'history',
-    loadComponent: () =>
-      import('./pages/history/history.page').then(m => m.HistoryPage)       // Página de histórico
-  }
+    path: 'tabs',
+    loadComponent: () => import('./pages/tabs/tabs.page').then( m => m.TabsPage)
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import('./pages/profile/profile.page').then(m => m.ProfilePage),         // Página de perfil
+        canActivate: [AuthGuard]                                                // Protege a rota com o AuthGuard
+      }
+    ]
+}
 ];
 
 @NgModule({
