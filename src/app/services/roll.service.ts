@@ -25,4 +25,18 @@ export class RollService {
             },
         });
     }
+
+    // Função para editar uma rolagem existente
+    updateRoll(id: string, rollResult: number, token: string) {
+        return this.http.put(`${this.api}/rolls/${id}`, { rollResult }, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      }
+      
+    // Função para deletar uma rolagem
+    deleteRoll(id: string, token: string) {
+        return this.http.delete(`${this.api}/rolls/${id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+    }
 }
