@@ -94,4 +94,8 @@ loadHistory() {
     });
     toast.present();                                                                               // Apresenta o toast
   }
+
+  async ionViewWillEnter() {
+    this.loadHistory();  // <-- isso aqui garante o carregamento ao entrar na aba
+  }
 }
