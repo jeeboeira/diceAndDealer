@@ -8,7 +8,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideIonicAngular } from '@ionic/angular/standalone';
 import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
 import { addIcons } from 'ionicons';
-import { cubeOutline, timeOutline, personOutline } from 'ionicons/icons';
+import { cubeOutline, timeOutline, personOutline, createOutline, trashOutline } from 'ionicons/icons';
 
 
 
@@ -24,5 +24,7 @@ bootstrapApplication(AppComponent, {
 addIcons({
   'cube-outline': cubeOutline,
   'time-outline': timeOutline,
-  'person-outline': personOutline
+  'person-outline': personOutline,
+  'create-outline': createOutline,
+  'trash-outline': trashOutline
 });

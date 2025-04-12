@@ -1,21 +1,24 @@
-<ion-header translucent>
+<ion-header>
   <ion-toolbar>
     <ion-title>Histórico</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list *ngIf="rolls.length > 0; else vazio">
+  <ion-list *ngIf="rolls.length > 0">
     <ion-item *ngFor="let roll of rolls">
       <ion-label>
-        <h2>Resultado: {{ roll.rollResult }}</h2>
-        <p>Dado: {{ roll.dado || 'd6' }}</p>
-        <p>Data: {{ roll.data | date: 'short' }}</p>
+        <h2>Dado: {{ roll.dado }}</h2>
+        <p>Resultado: {{ roll.rollResult }}</p>
+        <p>Data: {{ roll.data | date:'short' }}</p>
       </ion-label>
+      <ion-button fill="clear" color="primary" (click)="editRoll(roll)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" color="danger" (click)="deleteRoll(roll._id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
-
-  <ng-template #vazio>
-    <ion-text color="medium">Nenhuma rolagem encontrada.</ion-text>
-  </ng-template>
+  <p *ngIf="rolls.length === 0">Nenhuma rolagem registrada.</p>
 </ion-content>
